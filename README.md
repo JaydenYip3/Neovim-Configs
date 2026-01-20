@@ -10,6 +10,42 @@ A starting point for Neovim that is:
 
 **NOT** a Neovim distribution, but instead a starting point for your configuration.
 
+## Plugins
+
+- folke/lazy.nvim
+- tpope/vim-repeat
+- nvim-treesitter/nvim-treesitter
+- echasnovski/mini.nvim
+- folke/todo-comments.nvim
+- folke/tokyonight.nvim
+- saghen/blink.cmp
+- L3MON4D3/LuaSnip
+- folke/lazydev.nvim
+- stevearc/conform.nvim
+- neovim/nvim-lspconfig
+- mason-org/mason.nvim
+- mason-org/mason-lspconfig.nvim
+- WhoIsSethDaniel/mason-tool-installer.nvim
+- j-hui/fidget.nvim
+- nvim-telescope/telescope.nvim
+- nvim-telescope/telescope-fzf-native.nvim
+- nvim-telescope/telescope-ui-select.nvim
+- nvim-lua/plenary.nvim
+- nvim-tree/nvim-web-devicons
+- folke/which-key.nvim
+- lewis6991/gitsigns.nvim
+- NMAC427/guess-indent.nvim
+- nvim-neo-tree/neo-tree.nvim
+- MunifTanjim/nui.nvim
+- mfussenegger/nvim-lint
+- mfussenegger/nvim-dap
+- rcarriga/nvim-dap-ui
+- nvim-neotest/nvim-nio
+- jay-babu/mason-nvim-dap.nvim
+- leoluz/nvim-dap-go
+- lukas-reineke/indent-blankline.nvim
+- windwp/nvim-autopairs
+
 ## Installation
 
 ### Install Neovim
