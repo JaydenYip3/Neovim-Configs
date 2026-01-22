@@ -51,3 +51,5 @@ vim.keymap.set('n', '<leader>x', '<cmd>wqa<CR>', { desc = 'Save all and quit' })
 vim.keymap.set({ 'n', 'i', 'v' }, '<D-s>', '<cmd>w<CR>', {
   desc = 'Save file',
 })
+
+vim.keymap.set('n', '<leader>h', '<cmd>Alpha<CR>', { desc = 'Go Home' })
