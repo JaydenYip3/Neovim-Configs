@@ -52,4 +52,8 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<D-s>', '<cmd>w<CR>', {
   desc = 'Save file',
 })
 
+-- Go home
 vim.keymap.set('n', '<leader>h', '<cmd>Alpha<CR>', { desc = 'Go Home' })
+
+-- Esccape terminal
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])

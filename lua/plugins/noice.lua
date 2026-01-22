@@ -2,8 +2,12 @@ return {
   -- lazy.nvim
   {
     'folke/noice.nvim',
+    enabled = false,
     event = 'VeryLazy',
     opts = {
+      cmdline = {
+        enabled = false,
+      },
       -- add any options here
     },
     dependencies = {
