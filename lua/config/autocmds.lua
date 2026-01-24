@@ -32,3 +32,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- Change background transparency
+vim.cmd [[
+  highlight Normal guibg=NONE ctermbg=NONE
+  highlight NormalFloat guibg=NONE ctermbg=NONE
+  highlight SignColumn guibg=NONE
+  highlight EndOfBuffer guibg=NONE
+]]
