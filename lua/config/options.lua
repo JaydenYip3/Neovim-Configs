@@ -66,3 +66,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+
+-- To remove the ~
+vim.opt.fillchars:append { eob = ' ' }

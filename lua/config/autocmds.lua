@@ -40,3 +40,54 @@ vim.cmd [[
   highlight SignColumn guibg=NONE
   highlight EndOfBuffer guibg=NONE
 ]]
+
+-- Make Neovim transparent everywhere (editor, treesitter, sidebars, floats)
+local function transparent()
+  local groups = {
+    -- main editor
+    'Normal',
+    'NormalNC',
+    'EndOfBuffer',
+    'SignColumn',
+    'LineNr',
+    'CursorLineNr',
+    'FoldColumn',
+
+    -- splits / statusline (optional)
+    'VertSplit',
+    'StatusLine',
+    'StatusLineNC',
+    'WinSeparator',
+
+    -- popups / floating windows
+    'NormalFloat',
+    'FloatBorder',
+    'FloatTitle',
+
+    -- UI
+    'Pmenu',
+    'PmenuSel',
+    'PmenuSbar',
+    'PmenuThumb',
+
+    -- common plugin windows
+    'NeoTreeNormal',
+    'NeoTreeNormalNC',
+    'NeoTreeEndOfBuffer',
+  }
+
+  for _, g in ipairs(groups) do
+    vim.api.nvim_set_hl(0, g, { bg = 'NONE' })
+  end
+
+  -- If you want transparent cursorline, uncomment:
+  -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
+end
+
+-- Apply once on startup
+transparent()
+
+-- Re-apply every time colorscheme changes (themes often reset highlights)
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = transparent,
+})
