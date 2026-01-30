@@ -69,3 +69,6 @@ vim.opt.expandtab = true
 
 -- To remove the ~
 vim.opt.fillchars:append { eob = ' ' }
+
+-- Automatically reread files changed outside of Neovim
+vim.opt.autoread = true
