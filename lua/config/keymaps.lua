@@ -58,6 +58,9 @@ vim.keymap.set('n', '<leader>h', '<cmd>Alpha<CR>', { desc = 'Go Home' })
 -- Esccape terminal
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 
+-- To show lsp method signature
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP hover' })
+
 -- To find references
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
 vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, opts)
