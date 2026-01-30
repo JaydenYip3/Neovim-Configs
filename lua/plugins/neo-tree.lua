@@ -23,6 +23,7 @@ return {
           ['<leader>e'] = 'close_window',
 
           -- Space = preview (keeps focus in neo-tree)
+          -- To prevent swap files error: `rm -rf ~/.local/state/nvim/swap/*`
           ['<space>'] = function(state)
             local node = state.tree:get_node()
             if node.type == 'file' then
