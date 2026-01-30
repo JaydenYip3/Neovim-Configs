@@ -91,3 +91,22 @@ transparent()
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = transparent,
 })
+
+-- Lsp function signature auto detect inside brackets
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+
+    local function feed_and_sig(key)
+      return function()
+        -- insert the typed character
+        vim.api.nvim_feedkeys(key, 'n', false)
+        -- then request signature help
+        vim.lsp.buf.signature_help()
+      end
+    end
+
+    vim.keymap.set('i', '(', feed_and_sig '(', { buffer = bufnr, desc = 'Sig help on (' })
+    vim.keymap.set('i', ',', feed_and_sig ',', { buffer = bufnr, desc = 'Sig help on ,' })
+  end,
+})
