@@ -98,3 +98,12 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
     vim.cmd 'checktime'
   end,
 })
+
+-- Fix error message extending outside of Nvim
+vim.diagnostic.config {
+  virtual_text = false,
+  float = {
+    border = 'rounded',
+    wrap = true,
+  },
+}
