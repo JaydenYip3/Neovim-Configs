@@ -64,3 +64,8 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP hover' })
 -- To find references
 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
 vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, opts)
+
+-- show full diagnostic under cursor in a floating window
+vim.keymap.set('n', 'gl', function()
+  vim.diagnostic.open_float(nil, { focus = false, border = 'rounded', source = 'if_many' })
+end, { desc = 'Line diagnostics' })
