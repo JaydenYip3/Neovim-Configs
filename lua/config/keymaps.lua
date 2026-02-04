@@ -69,3 +69,6 @@ vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, opts)
 vim.keymap.set('n', 'gl', function()
   vim.diagnostic.open_float(nil, { focus = false, border = 'rounded', source = 'if_many' })
 end, { desc = 'Line diagnostics' })
+
+-- Telescope to view only git tracked files
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
