@@ -24,16 +24,16 @@ return {
 
           -- Space = preview (keeps focus in neo-tree)
           -- To prevent swap files error: `rm -rf ~/.local/state/nvim/swap/*`
-          ['<space>'] = function(state)
-            local node = state.tree:get_node()
-            if node.type == 'file' then
-              require('neo-tree.sources.filesystem.commands').toggle_preview(state, {
-                use_float = false,
-              })
-            else
-              require('neo-tree.sources.filesystem.commands').toggle_node(state)
-            end
-          end,
+          -- ['<space>'] = function(state)
+          --   local node = state.tree:get_node()
+          --   if node.type == 'file' then
+          --     require('neo-tree.sources.filesystem.commands').toggle_preview(state, {
+          --       use_float = false,
+          --     })
+          --   else
+          --     require('neo-tree.sources.filesystem.commands').toggle_node(state)
+          --   end
+          -- end,
 
           -- make `t` open file in new tab AND also open neo-tree in that tab
           ['t'] = function(state)
@@ -41,15 +41,15 @@ return {
             require('neo-tree.sources.filesystem.commands').open_tabnew(state)
 
             -- 2) ensure neo-tree is shown in the new tab, but keep focus on the file
-            vim.schedule(function()
-              local file_win = vim.api.nvim_get_current_win()
-              require('neo-tree.command').execute {
-                action = 'show',
-                source = 'filesystem',
-                reveal = true,
-              }
-              pcall(vim.api.nvim_set_current_win, file_win)
-            end)
+            -- vim.schedule(function()
+            --   local file_win = vim.api.nvim_get_current_win()
+            --   require('neo-tree.command').execute {
+            --     action = 'show',
+            --     source = 'filesystem',
+            --     reveal = true,
+            --   }
+            --   pcall(vim.api.nvim_set_current_win, file_win)
+            -- end)
           end,
         },
       },
