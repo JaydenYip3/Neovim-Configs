@@ -14,6 +14,7 @@ return {
     cmp.setup {
       mapping = cmp.mapping.preset.insert {},
       sources = cmp.config.sources {
+        { name = 'codeium' },
         { name = 'nvim_lsp' },
         { name = 'path' },
         { name = 'buffer' },
