@@ -1,5 +1,4 @@
 -- completion engine
-
 return {
   'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
@@ -11,8 +10,25 @@ return {
   },
   config = function()
     local cmp = require 'cmp'
+
     cmp.setup {
-      mapping = cmp.mapping.preset.insert {},
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
+      },
+
+      mapping = cmp.mapping.preset.insert {
+        ['<C-n>'] = cmp.mapping.select_next_item {},
+        ['<C-p>'] = cmp.mapping.select_prev_item {},
+        ['<CR>'] = cmp.mapping.confirm { select = true },
+      },
+
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
       sources = cmp.config.sources {
         { name = 'codeium' },
         { name = 'nvim_lsp' },
