@@ -19,6 +19,11 @@ return {
 
     filesystem = {
       window = {
+        filtered_items = {
+          visible = true, -- IMPORTANT: show filtered items
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
         mappings = {
           ['<leader>e'] = 'close_window',
 
