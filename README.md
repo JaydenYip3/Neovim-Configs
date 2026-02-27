@@ -1,5 +1,7 @@
 # NeoVim Configs
 
+Personal NeoVim configs. Here you will see my personal plugins
+
 ## Plugins
 
 - folke/lazy.nvim
