@@ -2,7 +2,7 @@
 
 Personal NeoVim configs. Here you will see my personal plugins
 
-## Plugins
+## All Plugins
 
 - folke/lazy.nvim
 - tpope/vim-repeat
