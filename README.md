@@ -38,8 +38,6 @@ Personal NeoVim configs. Here you will see my personal plugins
 - lukas-reineke/indent-blankline.nvim
 - windwp/nvim-autopairs
 
-## Installation
-
 ### Install Neovim
 
 Kickstart.nvim targets *only* the latest
