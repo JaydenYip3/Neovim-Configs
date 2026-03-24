@@ -2,6 +2,9 @@
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 
+-- Auto-start Neovim socket server for MCP
+vim.fn.serverstart '/tmp/nvim.sock'
+
 -- Setup Leader
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
