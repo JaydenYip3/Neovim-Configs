@@ -2,13 +2,12 @@
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 
--- Auto-start Neovim socket server for MCP
-local socket_path = '/tmp/nvim-' .. vim.fn.getpid() .. '.sock'
-vim.fn.serverstart(socket_path)
-
--- Create symlink at fixed path for MCP compatibility
-os.remove('/tmp/nvim.sock')
-vim.uv.fs_symlink(socket_path, '/tmp/nvim.sock')
+-- Write active socket path to tracking file on startup
+local f = io.open('/tmp/nvim-active.txt', 'w')
+if f then
+  f:write(vim.v.servername)
+  f:close()
+end
 
 -- Setup Leader
 vim.g.mapleader = ' '

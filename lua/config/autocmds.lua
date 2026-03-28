@@ -107,3 +107,23 @@ vim.diagnostic.config {
     wrap = true,
   },
 }
+
+-- To have one focused instance to represent the nvim socket, creates socket when focused
+vim.api.nvim_create_autocmd('FocusGained', {
+  callback = function()
+    local sock = vim.v.servername
+    vim.notify('FocusGained: ' .. sock, vim.log.levels.INFO)
+    local f = io.open('/tmp/nvim-active.txt', 'w')
+    if f then
+      f:write(sock)
+      f:close()
+    end
+  end,
+})
+
+-- Before leaving the nvim env, we need to close the socket else we will run into errors
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function()
+    os.remove '/tmp/nvim-active.txt'
+  end,
+})
