@@ -37,6 +37,7 @@ Personal NeoVim configs. Here you will see my personal plugins
 - leoluz/nvim-dap-go
 - lukas-reineke/indent-blankline.nvim
 - windwp/nvim-autopairs
+- nvimMCP
 
 ### Install Neovim
 
