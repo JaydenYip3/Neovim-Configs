@@ -15,12 +15,28 @@ return {
   },
   config = function()
     require('telescope').setup {
+      defaults = {
+        path_display = { 'filename_first' },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
       },
     }
+
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'TelescopePreviewerLoaded',
+      callback = function()
+        local ok, entry = pcall(require('telescope.actions.state').get_selected_entry)
+        if ok and entry then
+          local path = entry.path or entry.filename or entry.value
+          if path then
+            vim.api.nvim_echo({ { tostring(path), 'Comment' } }, false, {})
+          end
+        end
+      end,
+    })
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')

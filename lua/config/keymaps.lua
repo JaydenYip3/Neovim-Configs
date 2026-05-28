@@ -71,4 +71,4 @@ vim.keymap.set('n', 'gl', function()
 end, { desc = 'Line diagnostics' })
 
 -- Telescope to view only git tracked files
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
+vim.keymap.set('n', '<leader>sG', require('telescope.builtin').git_files, { desc = 'Search Git Files' })

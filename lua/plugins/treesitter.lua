@@ -1,5 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  branch = 'master',
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   opts = {
@@ -8,6 +9,9 @@ return {
       'c',
       'diff',
       'html',
+      'javascript',
+      'typescript',
+      'tsx',
       'lua',
       'luadoc',
       'markdown',
@@ -19,8 +23,8 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = { 'ruby' },
+      additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true, disable = { 'ruby' } },
+    indent = { enable = true, disable = { 'ruby', 'javascript', 'typescript', 'tsx' } },
   },
 }
