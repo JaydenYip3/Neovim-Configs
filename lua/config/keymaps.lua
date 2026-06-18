@@ -72,3 +72,8 @@ end, { desc = 'Line diagnostics' })
 
 -- Telescope to view only git tracked files
 vim.keymap.set('n', '<leader>sG', require('telescope.builtin').git_files, { desc = 'Search Git Files' })
+
+-- Paste over a visual selection without clobbering the yank register.
+-- Deletes the selection into the black-hole register ("_) first, then pastes,
+-- so the original yank survives and can be pasted again over other selections.
+vim.keymap.set('x', 'p', '"_dP', { desc = 'Paste over selection (keep register)' })
