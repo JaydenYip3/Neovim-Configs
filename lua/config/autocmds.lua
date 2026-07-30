@@ -84,12 +84,25 @@ local function transparent()
   -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "NONE" })
 end
 
+-- The default gitsigns preview colors are a very dim background tint, which
+-- barely reads once float backgrounds are transparent. Give the +/- lines an
+-- explicit foreground so they stand out on their own.
+local function gitsigns_diff_colors()
+  vim.api.nvim_set_hl(0, 'GitSignsDeletePreview', { fg = '#ff7a93', bg = '#4a2733' })
+  vim.api.nvim_set_hl(0, 'GitSignsDeleteVirtLn', { fg = '#ff7a93', bg = '#4a2733' })
+  vim.api.nvim_set_hl(0, 'GitSignsAddPreview', { fg = '#b9f27c', bg = '#25402b' })
+end
+
 -- Apply once on startup
 transparent()
+gitsigns_diff_colors()
 
 -- Re-apply every time colorscheme changes (themes often reset highlights)
 vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = transparent,
+  callback = function()
+    transparent()
+    gitsigns_diff_colors()
+  end,
 })
 
 -- Actively check when you return to Neovim or switch buffers

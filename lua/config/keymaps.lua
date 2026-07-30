@@ -53,7 +53,9 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<D-s>', '<cmd>w<CR>', {
 })
 
 -- Go home
-vim.keymap.set('n', '<leader>h', '<cmd>Alpha<CR>', { desc = 'Go Home' })
+-- NOTE: uses <leader>H, not <leader>h -- the lowercase prefix belongs to the
+-- gitsigns hunk maps (<leader>hs, <leader>hb, ...) and would shadow them.
+vim.keymap.set('n', '<leader>H', '<cmd>Alpha<CR>', { desc = 'Go Home' })
 
 -- Esccape terminal
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])

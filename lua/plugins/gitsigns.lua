@@ -53,6 +53,16 @@ return {
           gitsigns.diffthis '@'
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
+        map('n', 'gb', gitsigns.toggle_current_line_blame, { desc = 'Toggle [g]it [b]lame line' })
+        -- Show every change in the file inside this one window: deleted lines
+        -- as virtual lines, changed lines highlighted, word-level diff on.
+        local diff_shown = false
+        map('n', 'gh', function()
+          diff_shown = not diff_shown
+          gitsigns.toggle_deleted(diff_shown)
+          gitsigns.toggle_linehl(diff_shown)
+          gitsigns.toggle_word_diff(diff_shown)
+        end, { desc = 'Toggle [g]it changes in-buffer' })
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
         map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
       end,
