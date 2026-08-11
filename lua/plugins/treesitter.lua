@@ -25,6 +25,8 @@ return {
       enable = true,
       additional_vim_regex_highlighting = true,
     },
-    indent = { enable = true, disable = { 'ruby', 'javascript', 'typescript', 'tsx' } },
+    -- Treesitter's experimental indent overrides autoindent/smartindent via
+    -- indentexpr and returns column 0 for new lines (`o`) in several languages.
+    indent = { enable = false },
   },
 }
