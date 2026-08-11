@@ -96,6 +96,8 @@ return {
 
     local servers = {
       ts_ls = {},
+      dockerls = {},
+      docker_compose_language_service = {},
       lua_ls = {
         settings = {
           Lua = {
