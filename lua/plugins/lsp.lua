@@ -113,6 +113,7 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua',
       'prettierd',
+      'markdownlint',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
